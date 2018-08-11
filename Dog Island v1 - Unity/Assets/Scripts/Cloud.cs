@@ -23,11 +23,13 @@ public class Cloud : MonoBehaviour {
 	void GenerateClouds() {
 		for (int i = 0; i < numberOfClouds; i++) {
 			int cloudType = Random.Range (0, 4);
-
+			// float xPos = Random.Range (island.transform.);
+			Vector3 pos = new Vector3 ();
 			switch (cloudType) {
 				
 			case 0:
 				{
+					
 					break;
 				}
 
