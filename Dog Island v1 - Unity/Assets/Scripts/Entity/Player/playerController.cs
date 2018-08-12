@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
 	// handle player collisions
 	void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		Debug.Log("Hit " + hit.gameObject.name);
+		//Debug.Log("Hit " + hit.gameObject.name);
 
 		if(hit.gameObject.tag == "Water")
 		{
