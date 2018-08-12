@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HamaCameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour {
 
 		/*
 	 * instances

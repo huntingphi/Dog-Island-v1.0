@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour 
+public class PlayerController : MonoBehaviour 
 {
 	public float moveSpeed;
 	public float gravityScale;
@@ -72,41 +72,44 @@ public class playerController : MonoBehaviour
 
 		// Move the player in different directions
 
-		if(Input.GetAxis("Horizontal") > 0)
+		if(Input.GetAxisRaw("Horizontal") > 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y + 90f, 0f);
 		}
-		else if(Input.GetAxis("Horizontal") < 0)
+		else if(Input.GetAxisRaw("Horizontal") < 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y - 90f, 0f);
 		}
-		else if(Input.GetAxis("Vertical") < 0)
+		else if(Input.GetAxisRaw("Vertical") < 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y + 180f, 0f);
 		}
-		else if(Input.GetAxis("Vertical") > 0)
+		else if(Input.GetAxisRaw("Vertical") > 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
 		}
 
-		if(Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
+		if(Input.GetAxisRaw("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y + 45f, 0f);
 		}
-		else if(Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0)
+		else if(Input.GetAxisRaw("Horizontal") > 0 && Input.GetAxis("Vertical") < 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y + 135f, 0f);
 		}
-		else if(Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0)
+		else if(Input.GetAxisRaw("Horizontal") < 0 && Input.GetAxis("Vertical") > 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y - 45f, 0f);
 		}
-		else if(Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
+		else if(Input.GetAxisRaw("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y - 135f, 0f);
 		}
 
-
+		if(Input.GetButtonDown("Fire1"))
+		{
+			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
+		}
 
 		anim.SetBool("isGrounded", controller.isGrounded);
 		anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal")));
