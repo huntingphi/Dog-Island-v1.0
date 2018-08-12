@@ -5255,9 +5255,55 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114487222481336026, guid: 1eccc1d8e76e24313a07befd4d032e3a,
+        type: 2}
+      propertyPath: respawnManager
+      value: 
+      objectReference: {fileID: 1204149146}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eccc1d8e76e24313a07befd4d032e3a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1204149146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204149148}
+  - component: {fileID: 1204149147}
+  m_Layer: 0
+  m_Name: RespawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1204149147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1204149146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061ad133cb17b43f09ef8dc51ac117a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {x: 0, y: 0, z: 0}
+--- !u!4 &1204149148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1204149146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.174816, y: -17.20183, z: 106.63661}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209684705
 GameObject:
   m_ObjectHideFlags: 0
@@ -5700,6 +5746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998619f43a13747cb8b0658f193e7863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationLocation: {fileID: 1018857898}
+  respawnManager: {fileID: 1204149146}
 --- !u!4 &1964836286
 Transform:
   m_ObjectHideFlags: 0

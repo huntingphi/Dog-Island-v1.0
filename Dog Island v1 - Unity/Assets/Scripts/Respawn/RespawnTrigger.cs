@@ -7,6 +7,8 @@ public class RespawnTrigger : MonoBehaviour
 	/*
 	 * instances
 	 */
+	public Transform stationLocation;
+	public GameObject respawnManager;
 
 
 	/*
@@ -27,7 +29,12 @@ public class RespawnTrigger : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Player")
 		{
-			Debug.Log("We got a player");
+			respawnManager.GetComponent<RespawnManager>().updateRespawnPosition(stationLocation.position);
 		}
 	}
+
+	//void notifyRespawnManager(Vector3 position)
+	//{
+
+	//}
 }

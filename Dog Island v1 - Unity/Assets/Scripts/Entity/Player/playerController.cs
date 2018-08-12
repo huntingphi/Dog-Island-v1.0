@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 	public float gravityScale;
 	public float jumpForce;
 	public CharacterController controller;
-	public Rigidbody rigidBody;
 
 	private Vector3 moveDirection;
 	private bool canAirJump = true;
@@ -22,6 +21,9 @@ public class PlayerController : MonoBehaviour
 	public Transform camera;
 	public Transform characterModel;
 	public float rotateSpeed;
+
+
+	public GameObject respawnManager;
 
 
 	/*
@@ -131,6 +133,17 @@ public class PlayerController : MonoBehaviour
 		if(hit.gameObject.tag == "Water")
 		{
 			Debug.Log("Player died");
+
+			Debug.Log(transform.position);
+
+			
+			Vector3 r = new Vector3(4.0f, 6.0f, 5.0f);
+
+			transform.position = r;
+
+			controller.center = new Vector3(4.0f, 6.0f, 5.0f);
+
+			Debug.Log(transform.position);
 		}
 	}
 
