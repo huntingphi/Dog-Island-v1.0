@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
+	/*
+	 * instances
+	 */
+
+
 	public float moveSpeed;
 	public float gravityScale;
 	public float jumpForce;
@@ -18,31 +23,38 @@ public class PlayerController : MonoBehaviour
 	public Transform characterModel;
 	public float rotateSpeed;
 
-	// Use this for initialization
+
+	/*
+	 * methods
+	 */
+
 	void Start () 
 	{
 		controller = GetComponent<CharacterController>();
 		canAirJump = true;
 
 		Cursor.lockState = CursorLockMode.Locked;
-		
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
-		//moveDirection = new Vector3 (Input.GetAxis ("Horizontal") * moveSpeed, 
-	//		moveDirection.y, Input.GetAxis ("Vertical") * moveSpeed);
+		Movement();
 
+		// handle animations
+		anim.SetBool("isGrounded", controller.isGrounded);
+		anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal")));
+	}
+
+
+	// input is turned into player movement on screen
+	void Movement()
+	{
 		moveDirection = (transform.forward * Input.GetAxis("Vertical") * moveSpeed)
 						+ (transform.right * Input.GetAxis("Horizontal") * moveSpeed);
 
 
 		if(!controller.isGrounded)
 		{
-			//moveDirection = new Vector3 (Input.GetAxis ("Horizontal") * moveSpeed *0.8f, 
-			//	controller.velocity.y, Input.GetAxis ("Vertical") * moveSpeed/0.8f);
-
 			moveDirection = (transform.forward * Input.GetAxis("Vertical") * moveSpeed * 0.8f)
 							+ (transform.right * Input.GetAxis("Horizontal") * moveSpeed * 0.8f) 
 							+ new Vector3(0, controller.velocity.y, 0);				
@@ -71,7 +83,6 @@ public class PlayerController : MonoBehaviour
 		controller.Move(moveDirection * Time.deltaTime);
 
 		// Move the player in different directions
-
 		if(Input.GetAxisRaw("Horizontal") > 0)
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y + 90f, 0f);
@@ -110,8 +121,33 @@ public class PlayerController : MonoBehaviour
 		{
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
 		}
-
-		anim.SetBool("isGrounded", controller.isGrounded);
-		anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal")));
 	}
+
+	// handle player collisions
+	void OnControllerColliderHit(ControllerColliderHit hit)
+	{
+		Debug.Log("Hit " + hit.gameObject.name);
+
+		if(hit.gameObject.tag == "Water")
+		{
+			Debug.Log("Player died");
+		}
+	}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
