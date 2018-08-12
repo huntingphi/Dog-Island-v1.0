@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 	 */
 	public int damage = 1;
 
+	public GameObject bulletDestructEffect;
+
 
 
 
@@ -37,6 +39,9 @@ public class Bullet : MonoBehaviour
 		{
 			// if object is hit, subtract bullet damage from the object's health
 			destroyableObject.LoseHealth(damage);
+
+			var effect = Instantiate(bulletDestructEffect, gameObject.transform.position,  Quaternion.identity);
+			Destroy(effect , 2.0f);
 			Destroy(gameObject);
 		}
     }
