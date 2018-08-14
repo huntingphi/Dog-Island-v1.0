@@ -133,15 +133,18 @@ public class PlayerController : MonoBehaviour
 		if(hit.gameObject.tag == "Water")
 		{
 			Debug.Log("Player died");
-
-			Debug.Log(transform.position);
-
 			
-			Vector3 r = new Vector3(4.0f, 6.0f, 5.0f);
+			Vector3 p = new Vector3(0.0f, 50.0f, 0.0f);
 
-			transform.position = r;
+			Vector3 respawnLocation = respawnManager.GetComponent<RespawnManager>().respawnPosition;
 
-			controller.center = new Vector3(4.0f, 6.0f, 5.0f);
+			Vector3 displacement = respawnLocation - transform.position + new Vector3(0, 5, 0);
+
+			controller.isTrigger = true;
+			controller.Move(displacement);
+			controller.isTrigger = false;
+
+
 
 			Debug.Log(transform.position);
 		}
