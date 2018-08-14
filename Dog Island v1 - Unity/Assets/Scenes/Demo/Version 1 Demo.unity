@@ -5260,11 +5260,6 @@ Prefab:
       propertyPath: respawnManager
       value: 
       objectReference: {fileID: 1204149146}
-    - target: {fileID: 143272515609459036, guid: 1eccc1d8e76e24313a07befd4d032e3a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eccc1d8e76e24313a07befd4d032e3a, type: 2}
   m_IsPrefabAsset: 0
