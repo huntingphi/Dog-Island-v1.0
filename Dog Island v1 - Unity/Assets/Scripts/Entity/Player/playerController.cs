@@ -138,11 +138,18 @@ public class PlayerController : MonoBehaviour
 
 			Vector3 respawnLocation = respawnManager.GetComponent<RespawnManager>().respawnPosition;
 
-			Vector3 displacement = respawnLocation - transform.position + new Vector3(0, 5, 0);
+			Vector3 displacement1 = respawnLocation - transform.position;
+			displacement1.y = 0;
+			Vector3 displacement2 = respawnLocation - transform.position + new Vector3(0, 5, 0);
+			displacement2.x = 0;
+			displacement2.z = 0;
 
-			controller.isTrigger = true;
-			controller.Move(displacement);
-			controller.isTrigger = false;
+			//controller.isTrigger = true;
+			gameObject.layer = 12;	// uncollidable layer
+			controller.Move(displacement1);
+			controller.Move(displacement2);
+			gameObject.layer = 8;	// player layer
+			//controller.isTrigger = false;
 
 
 
