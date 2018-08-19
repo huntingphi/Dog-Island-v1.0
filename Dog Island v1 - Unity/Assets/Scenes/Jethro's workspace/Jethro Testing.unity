@@ -249,30 +249,9 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 228930058}
-    - target: {fileID: 114277403823184410, guid: 025d3af3e1c4541a9b91ad3e4f322bb7,
-        type: 2}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114277403823184410, guid: 025d3af3e1c4541a9b91ad3e4f322bb7,
-        type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 311407778}
-    - target: {fileID: 114277403823184410, guid: 025d3af3e1c4541a9b91ad3e4f322bb7,
-        type: 2}
-      propertyPath: totalHealth
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 025d3af3e1c4541a9b91ad3e4f322bb7, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &311407778 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114710494363429828, guid: 025d3af3e1c4541a9b91ad3e4f322bb7,
-    type: 2}
-  m_PrefabInternal: {fileID: 311407777}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &337404306
 Prefab:
   m_ObjectHideFlags: 0
@@ -447,21 +426,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1758245893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1264944400794942, guid: 025d3af3e1c4541a9b91ad3e4f322bb7,
-    type: 2}
-  m_PrefabInternal: {fileID: 311407777}
---- !u!136 &1758245898
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1758245893}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.031454634
-  m_Height: 0.16039619
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.07898699, z: 0.008982749}
