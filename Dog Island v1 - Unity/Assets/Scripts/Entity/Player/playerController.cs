@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	// handle player collisions
+	//
 	void OnControllerColliderHit(ControllerColliderHit hit)
 	{
 		if(hit.gameObject.name != "Plane")
