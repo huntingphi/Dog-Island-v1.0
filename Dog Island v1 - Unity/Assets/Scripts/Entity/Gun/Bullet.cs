@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 	/*
 	 * instances
 	 */
-	public int damage = 1;
+	public int damage = 10;
 
 	public GameObject bulletDestructEffect;
 
@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
 	void OnCollisionEnter(Collision other) 
 	{
 		Debug.Log("Hit " + other.gameObject.name);
-        DestroyableEntity destroyableObject = other.transform.GetComponent<DestroyableEntity>();
+        EnemyHealth destroyableObject = other.transform.GetComponent<EnemyHealth>();
         if(destroyableObject != null)
 		{
 			// if object is hit, subtract bullet damage from the object's health
