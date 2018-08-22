@@ -119,10 +119,10 @@ public class PlayerController : MonoBehaviour
 			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y - 135f, 0f);
 		}
 
-		if(Input.GetButtonDown("Fire1"))
-		{
-			characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
-		}
+		//if(Input.GetButtonDown("Fire1"))
+		//{
+		//	characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
+		//}
 	}
 
 	// handle player collisions
@@ -159,6 +159,11 @@ public class PlayerController : MonoBehaviour
 
 			Debug.Log(transform.position);
 		}
+	}
+
+	public void FaceForward()
+	{
+		characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
 	}
 
 

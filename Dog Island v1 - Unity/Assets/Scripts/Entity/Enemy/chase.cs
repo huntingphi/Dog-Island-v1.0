@@ -5,6 +5,8 @@ public class chase : MonoBehaviour {
 
 	public Transform player;
 	static Animator anim;
+	public float speed;
+	
 
 	// Use this for initialization
 	void Start () 
@@ -17,7 +19,8 @@ public class chase : MonoBehaviour {
 	{
 		Vector3 direction = player.position - this.transform.position;
 		float angle = Vector3.Angle(direction,this.transform.forward);
-		if(Vector3.Distance(player.position, this.transform.position) < 180 && angle < 30)
+
+		if(direction.magnitude < 30 && angle < 90)
 		{
 			
 			direction.y = 0;
@@ -28,7 +31,7 @@ public class chase : MonoBehaviour {
 			anim.SetBool("isIdle",false);
 			if(direction.magnitude > 4)
 			{
-				this.transform.Translate(0,0,0.05f);
+				this.transform.Translate(0,0,speed);
 				anim.SetBool("isWalking",true);
 				anim.SetBool("isAttacking",false);
 			}

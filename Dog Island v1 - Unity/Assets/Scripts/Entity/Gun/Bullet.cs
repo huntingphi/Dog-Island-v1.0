@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 	/*
 	 * instances
 	 */
-	public int damage = 10;
+	int damage = 10;
 
 	public GameObject bulletDestructEffect;
 

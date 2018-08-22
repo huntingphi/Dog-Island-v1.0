@@ -10,10 +10,17 @@ public class Gun : MonoBehaviour
 	public GameObject bulletEmitter;
 	public GameObject bullet;
 	public float bulletForce;
+	GameObject player;
 
 	/*
 	 * methods
 	 */
+
+	void Awake()
+	{
+		player = GameObject.FindGameObjectWithTag ("Player");
+
+	}
 
 	void Start () 
 	{
@@ -24,6 +31,7 @@ public class Gun : MonoBehaviour
 	{
 		if(Input.GetButtonDown("Fire1"))
 		{
+			player.GetComponent<PlayerController>().FaceForward();
 			GameObject tempBullet;
 			tempBullet = Instantiate(bullet, bulletEmitter.transform.position, bulletEmitter.transform.rotation) as GameObject;
 

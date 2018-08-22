@@ -12,8 +12,8 @@ public class EnemyHealth : MonoBehaviour
 	 */
 	 public Image healthBar;
 
-	 public int health;
-	 public int totalHealth;
+	 public int health = 100;
+	 public int totalHealth = 100;
 
 	
 
@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
 	
 	void Update () 
 	{
-		healthBar.fillAmount = (float) health / totalHealth;
+		healthBar.fillAmount = (float) health / (float)totalHealth;
 	}
 
 	public void LoseHealth(int amount)
@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
 
 		if(health <= 0)
 		{
-			//Destroy(gameObject);
+			Destroy(gameObject);
 		}
 	}
 }
