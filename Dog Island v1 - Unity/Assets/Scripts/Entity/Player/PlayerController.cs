@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -22,6 +23,11 @@ public class PlayerController : MonoBehaviour
 	public Transform characterModel;
 	public float rotateSpeed;
 
+	public Image healthBar;
+
+	public int health = 100;
+	public int totalHealth = 100;
+
 
 	public GameObject respawnManager;
 
@@ -40,6 +46,8 @@ public class PlayerController : MonoBehaviour
 	
 	void Update () 
 	{
+		healthBar.fillAmount = (float) health / (float)totalHealth;
+
 		Movement();
 
 		// handle animations
@@ -123,6 +131,11 @@ public class PlayerController : MonoBehaviour
 		//{
 		//	characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
 		//}
+
+		if(health <= 0)
+		{
+			respawnPlayer();
+		}
 	}
 
 	// handle player collisions
@@ -138,32 +151,51 @@ public class PlayerController : MonoBehaviour
 		{
 			Debug.Log("Player died");
 			
-			Vector3 p = new Vector3(0.0f, 50.0f, 0.0f);
-
-			Vector3 respawnLocation = respawnManager.GetComponent<RespawnManager>().respawnPosition;
-
-			Vector3 displacement1 = respawnLocation - transform.position;
-			displacement1.y = 0;
-			Vector3 displacement2 = respawnLocation - transform.position + new Vector3(0, 5, 0);
-			displacement2.x = 0;
-			displacement2.z = 0;
-
-			//controller.isTrigger = true;
-			gameObject.layer = 12;	// uncollidable layer
-			controller.Move(displacement1);
-			controller.Move(displacement2);
-			gameObject.layer = 8;	// player layer
-			//controller.isTrigger = false;
-
+			respawnPlayer();
+			//health = 0;
 
 
 			Debug.Log(transform.position);
 		}
 	}
 
+	void respawnPlayer()
+	{
+		
+		
+		Vector3 respawnLocation = respawnManager.GetComponent<RespawnManager>().respawnPosition;
+
+		Vector3 displacement1 = respawnLocation - transform.position;
+		displacement1.y = 0;
+		Vector3 displacement2 = respawnLocation - transform.position + new Vector3(0, 10, 0);
+		displacement2.x = 0;
+		displacement2.z = 0;
+
+			//controller.isTrigger = true;
+		gameObject.layer = 12;	// uncollidable layer
+		controller.Move(displacement1);
+		controller.Move(displacement2);
+		gameObject.layer = 8;
+
+		health = totalHealth;
+
+		Debug.Log(transform.position);
+	}
+
 	public void FaceForward()
 	{
 		characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
+	}
+
+	public void LoseHealth(int damage)
+	{
+		health -= damage;
+
+		if(health <= 0)
+		{
+			health = 0;
+			//respawnPlayer();
+		}
 	}
 
 

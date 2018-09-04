@@ -4,8 +4,9 @@ using System.Collections;
 public class chase : MonoBehaviour {
 
 	public Transform player;
-	static Animator anim;
+	public Animator anim;
 	public float speed;
+
 	
 
 	// Use this for initialization
@@ -17,6 +18,9 @@ public class chase : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		
+
+
 		Vector3 direction = player.position - this.transform.position;
 		float angle = Vector3.Angle(direction,this.transform.forward);
 
@@ -39,6 +43,8 @@ public class chase : MonoBehaviour {
 			{
 				anim.SetBool("isAttacking",true);
 				anim.SetBool("isWalking",false);
+
+				transform.Rotate(Vector3.up * -1 * 3);
 			}
 
 		}
@@ -49,5 +55,6 @@ public class chase : MonoBehaviour {
 			anim.SetBool("isAttacking", false);
 		}
 
+		
 	}
 }
