@@ -22,7 +22,12 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		/*cameraDistance = new Vector3(0, -5, 10);
+		*/
+		//Cursor.lockState = CursorLockMode.Locked;
+
 		character = this.transform.parent.gameObject;
+
 		transform.LookAt(character.transform.position);
 	}
 	

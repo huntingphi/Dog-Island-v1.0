@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
+
+	public int currentGold;
+	public Text goldText;
 
 	// Use this for initialization
 	void Start () {
@@ -12,5 +16,11 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void AddGold(int goldNum)
+	{
+		currentGold += goldNum;
+		goldText.text = "Gold " + currentGold;
 	}
 }
