@@ -35,6 +35,22 @@ public class PlayerController : MonoBehaviour
 
 
 	private bool controlsKilled = false;
+	
+	/////////////////////////////////////////////////////////////////////////////////////
+    //Jethro's powerup code
+	public int damage;
+    public int healthBoost = 10;
+    public int damageBoost = 10;
+    public int jumpBoost = 10;
+
+    public float stateTime = 7f;
+    float timer;
+
+    bool damageBoosted = false;
+    bool jumpBoosted = false;
+    bool invincibleBoosted = false;
+    /////////////////////////////////////////////////////////////////////////////////////
+
 
 
 	/*
@@ -63,6 +79,33 @@ public class PlayerController : MonoBehaviour
 		// handle animations
 		anim.SetBool("isGrounded", controller.isGrounded);
 		anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal")));
+		
+		/////////////////////////////////////////////////////////////////////////////////////
+        //Jethro's powerup code
+		if(damageBoosted||invincibleBoosted||jumpBoosted){
+            timer += Time.deltaTime;
+            if (timer > stateTime)
+            {
+				//Timer is done
+				if(damageBoosted){
+					damage-=damageBoost;
+					damageBoosted = false;
+				}
+                if (jumpBoosted)
+                {
+					jumpForce-=jumpBoost;
+					jumpBoosted=false;
+                }
+                if (invincibleBoosted)
+                {
+					invincibleBoosted = false;
+                }
+                timer = 0f;
+            }
+        }
+    
+        /////////////////////////////////////////////////////////////////////////////////////
+
 	}
 
 
@@ -200,6 +243,11 @@ public class PlayerController : MonoBehaviour
 	public void LoseHealth(int damage)
 	{
 		health -= damage;
+		/////////////////////////////////////////////////////////////////////////////////////
+        //Jethro's powerup code
+		if(invincibleBoosted)health+=damage;
+        /////////////////////////////////////////////////////////////////////////////////////
+
 
 		if(health <= 0)
 		{
@@ -208,6 +256,39 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+/////////////////////////////////////////////////////////////////////////////////////
+    //Jethro's powerup code
+
+    public void BoostHealth()
+    {
+        if (health <= 90)
+        {
+            health += healthBoost;
+        }
+    }
+
+    public void BoostJump()
+    {
+
+        jumpForce+=jumpBoost;
+    }
+
+    public void BoostDamage()
+    {
+        if (health <= 90)
+        {
+            health += healthBoost;
+        }
+    }
+
+    public void BoostInvincible()
+    {
+        if (health <= 90)
+        {
+            health += healthBoost;
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
 
 }
 
