@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
 
 	public GameObject respawnManager;
 
+	public Canvas playerRespawnCanvas;
+
+
+	private bool controlsKilled = false;
+
 
 	/*
 	 * methods
@@ -42,13 +47,27 @@ public class PlayerController : MonoBehaviour
 		canAirJump = true;
 
 		Cursor.lockState = CursorLockMode.Locked;
+
+		playerRespawnCanvas.enabled = false;
 	}
 	
 	void Update () 
 	{
 		healthBar.fillAmount = (float) health / (float)totalHealth;
 
-		Movement();
+		if(playerRespawnCanvas.enabled)
+		{
+			if(controller.isGrounded)
+			{
+				playerRespawnCanvas.enabled = false;
+				controlsKilled = false;
+			}
+		}
+
+		if(controlsKilled)
+		{
+			Movement();
+		}
 
 		// handle animations
 		anim.SetBool("isGrounded", controller.isGrounded);
@@ -131,11 +150,6 @@ public class PlayerController : MonoBehaviour
 		//{
 		//	characterModel.rotation  = Quaternion.Euler(0f, camera.rotation.eulerAngles.y, 0f);
 		//}
-
-		if(health <= 0)
-		{
-			respawnPlayer();
-		}
 	}
 
 	// handle player collisions
@@ -151,18 +165,23 @@ public class PlayerController : MonoBehaviour
 		{
 			Debug.Log("Player died");
 			
-			respawnPlayer();
-			//health = 0;
+			health = 0;
 
 
 			Debug.Log(transform.position);
+		}
+
+		if(health <= 0)
+		{
+			respawnPlayer();
 		}
 	}
 
 	void respawnPlayer()
 	{
-		
-		
+		controlsKilled = true;
+		playerRespawnCanvas.enabled = true;
+
 		Vector3 respawnLocation = respawnManager.GetComponent<RespawnManager>().respawnPosition;
 
 		Vector3 displacement1 = respawnLocation - transform.position;
