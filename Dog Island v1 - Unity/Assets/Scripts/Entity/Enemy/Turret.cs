@@ -12,10 +12,11 @@ public class Turret : MonoBehaviour
 	public Transform firePoint;
 
 	public int range = 15;
+	public float bulletForce = 1000f;
 
 	public int rotateSpeed = 2;
 
-	public float fireRate = 1f;
+	public float fireRate = 2f;
 	private float fireCountDown  = 0f;
 
 	// Use this for initialization
@@ -28,7 +29,7 @@ public class Turret : MonoBehaviour
 	void Update () 
 	{
 
-		Vector3 dir = target.position - partToRotate.transform.position;
+		Vector3 dir = target.position - partToRotate.transform.position + new Vector3(0f, 2f, 0f);
 		if(dir.magnitude <= range)
 		{
 			Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -57,7 +58,13 @@ public class Turret : MonoBehaviour
 	{
 		Debug.Log("SHOOT");
 
-		Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
+		GameObject tempBullet = Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
+
+		Rigidbody bulletRigidbody;
+		bulletRigidbody = tempBullet.GetComponent<Rigidbody>();
+		bulletRigidbody.AddForce(firePoint.forward *  bulletForce);
+
+		Destroy(tempBullet, 10.0f);
 	}
 
 

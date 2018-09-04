@@ -40,6 +40,12 @@ public class Bullet : MonoBehaviour
 			destroyableObject.LoseHealth(damage);
 		}
 
+		PlayerController player = other.transform.GetComponent<PlayerController>();
+		if(player != null)
+		{
+			player.LoseHealth(damage);
+		}
+
 		var effect = Instantiate(bulletDestructEffect, gameObject.transform.position,  Quaternion.identity);
 		Destroy(effect , 2.0f);
 		Destroy(gameObject);
