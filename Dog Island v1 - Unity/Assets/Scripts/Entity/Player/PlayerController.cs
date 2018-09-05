@@ -36,15 +36,22 @@ public class PlayerController : MonoBehaviour
 
 	private bool controlsKilled = false;
 	
-	/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
     //Jethro's powerup code
-	public int damage;
+    public int DEFAULT_DAMAGE = 0;
+    public int DEFAULT_JUMPFORCE = 14;
+    public int damage = 100;
     public int healthBoost = 10;
     public int damageBoost = 10;
     public int jumpBoost = 10;
 
-    public float stateTime = 7f;
-    float timer;
+    public float damageStateTime = 0f;
+    public float jumpStateTime = 0f;
+    public float invincibleStateTime = 0f;
+
+    float damageTimer;
+    float jumpTimer;
+    float invincibleTimer;
 
     bool damageBoosted = false;
     bool jumpBoosted = false;
@@ -82,29 +89,45 @@ public class PlayerController : MonoBehaviour
 		
 		/////////////////////////////////////////////////////////////////////////////////////
         //Jethro's powerup code
-		if(damageBoosted||invincibleBoosted||jumpBoosted){
-            timer += Time.deltaTime;
-            if (timer > stateTime)
+        if (damageBoosted)
+        {
+            damageTimer += Time.deltaTime;
+            if (damageTimer > damageStateTime)
             {
-				//Timer is done
-				if(damageBoosted){
-					damage-=damageBoost;
-					damageBoosted = false;
-				}
-                if (jumpBoosted)
-                {
-					jumpForce-=jumpBoost;
-					jumpBoosted=false;
-                }
-                if (invincibleBoosted)
-                {
-					invincibleBoosted = false;
-                }
-                timer = 0f;
+                //Timer is done
+                damage = DEFAULT_DAMAGE;
+                damageBoosted = false;
+                damageTimer = 0f;
+                damageStateTime = 0f;
             }
         }
-    
+
+        if (jumpBoosted)
+        {
+            jumpTimer += Time.deltaTime;
+            if (jumpTimer > jumpStateTime)
+            {
+                jumpForce = DEFAULT_JUMPFORCE;
+                jumpBoosted = false;
+                jumpTimer = 0f;
+                jumpStateTime = 0f;
+            }
+        }
+        if (invincibleBoosted)
+        {
+            invincibleTimer += Time.deltaTime;
+            if (invincibleTimer > invincibleStateTime)
+            {
+
+                invincibleBoosted = false;
+                invincibleTimer = 0f;
+                invincibleStateTime = 0f;
+            }
+        }
+
+
         /////////////////////////////////////////////////////////////////////////////////////
+
 
 	}
 
@@ -243,9 +266,9 @@ public class PlayerController : MonoBehaviour
 	public void LoseHealth(int damage)
 	{
 		health -= damage;
-		/////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////
         //Jethro's powerup code
-		if(invincibleBoosted)health+=damage;
+        if (invincibleBoosted) health += damage;//TODO: Optimize this
         /////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -269,26 +292,26 @@ public class PlayerController : MonoBehaviour
 
     public void BoostJump()
     {
-
-        jumpForce+=jumpBoost;
+        jumpStateTime += 7f;
+        jumpBoosted = true;
+        jumpForce += jumpBoost;
     }
 
     public void BoostDamage()
     {
-        if (health <= 90)
-        {
-            health += healthBoost;
-        }
+        damageStateTime += 7f;
+        damageBoosted = true;
+        damage += damageBoost;
     }
 
     public void BoostInvincible()
     {
-        if (health <= 90)
-        {
-            health += healthBoost;
-        }
+        invincibleStateTime += 7f;
+        invincibleBoosted = true;
     }
     /////////////////////////////////////////////////////////////////////////////////////
+
+
 
 }
 
