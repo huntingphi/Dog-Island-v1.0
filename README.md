@@ -1,14 +1,14 @@
 # Dog-Island-v1.0
 3rd Person Survival RGP Platformer game about an explorer searching for his lost dog on a mysterious island.
 
+<a name="Story"></a>
 # Story
 
-<a name="Story"></a>
 The game is based around Toby and Nicole, a pair of archaeologist youths stranded on a desolate island after a boat crash on the west of the pacific rim. After managing to escape the sunken wreck on an emergency dinghy with their dog, Happy, they awake on the shoreline of the island, but Happy is missing. A mysterious note placed beside them informs them that their dog has in fact been kidnapped. Toby and Nicole have to muster up the courage to face the entities that took Happy and escape the island, before it is too late.
 
+<a name="Chronicles"></a>
 # Chronicles
 
-<a name="Chronicles"></a>
 ## Prelude
 
 On a small dinghy, wandering off from it's mother ship, Toby and Nicole paddle their way in the direction of South West.
@@ -65,10 +65,8 @@ depicting what looks to be a dog above a temple. the dog looks to be dead perhap
 a sacrifice of some sort, Toby and Nicole look confused and that's when it hits them
  " where's Happy" Toby exclaims, that's when panic sets in- Happy is missing.
 
-
-# How to play
-
 <a name="play"></a>
+# How to play
 
   Keyboard
 
@@ -98,9 +96,9 @@ a sacrifice of some sort, Toby and Nicole look confused and that's when it hits 
   | Left-trigger | Aim |
   | D Pad | Cycle through weapons |
   
+<a name="Contact"></a>  
 # Contact
 
-<a name="Contact"></a>
 Jethro Moller
 MLLJET002@myuct.ac.za
 
