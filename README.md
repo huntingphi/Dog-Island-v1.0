@@ -1,13 +1,13 @@
 # Dog-Island-v1.0
 3rd Person Survival RGP Platformer game about an explorer searching for his lost dog on a mysterious island.
 
-<a name="Story"></a>
-# Story
+
+# <a name="Story"></a>Story
 
 The game is based around Toby and Nicole, a pair of archaeologist youths stranded on a desolate island after a boat crash on the west of the pacific rim. After managing to escape the sunken wreck on an emergency dinghy with their dog, Happy, they awake on the shoreline of the island, but Happy is missing. A mysterious note placed beside them informs them that their dog has in fact been kidnapped. Toby and Nicole have to muster up the courage to face the entities that took Happy and escape the island, before it is too late.
 
-<a name="Chronicles"></a>
-# Chronicles
+
+# <a name="Chronicles"></a>Chronicles
 
 ## Prelude
 
@@ -65,8 +65,16 @@ depicting what looks to be a dog above a temple. the dog looks to be dead perhap
 a sacrifice of some sort, Toby and Nicole look confused and that's when it hits them
  " where's Happy" Toby exclaims, that's when panic sets in- Happy is missing.
 
-<a name="play"></a>
-# How to play
+# <a name="location">Location
+
+The isolated volcanic island is located at the crossroads of five major ocean currents. To get to Playa de Amor (the hidden beach) legend has it you have to swim around the island then go underneath a distant cave facing away from the volcano. After hours of crawling the golden sand glistens through the clear blue water.
+
+An image of Toby and Nicole (after being washed up) can be seen below:
+
+<iframe src="https://drive.google.com/file/d/0B4mrMaGz41IpUWhrZGRIUHJMRmZqVGJweURNRzBZNVRKRmMw/preview" width="640" height="480"></iframe>
+
+
+# <a name="play"></a>How to play
 
   Keyboard
 
@@ -96,8 +104,8 @@ a sacrifice of some sort, Toby and Nicole look confused and that's when it hits 
   | Left-trigger | Aim |
   | D Pad | Cycle through weapons |
   
-<a name="Contact"></a>  
-# Contact
+  
+# <a name="Contact"></a>Contact
 
 Jethro Moller
 MLLJET002@myuct.ac.za
