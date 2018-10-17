@@ -3,11 +3,13 @@
 
 # Story
 
+<a name="Story"></a>
 The game is based around Toby and Nicole, a pair of archaeologist youths stranded on a desolate island after a boat crash on the west of the pacific rim. After managing to escape the sunken wreck on an emergency dinghy with their dog, Happy, they awake on the shoreline of the island, but Happy is missing. A mysterious note placed beside them informs them that their dog has in fact been kidnapped. Toby and Nicole have to muster up the courage to face the entities that took Happy and escape the island, before it is too late.
 
 # Chronicles
 
-# Prelude
+<a name="Chronicles"></a>
+## Prelude
 
 On a small dinghy, wandering off from it's mother ship, Toby and Nicole paddle their way in the direction of South West.
 Happy, their trusty golden retriever, sits between them on the dinghy.
@@ -24,7 +26,7 @@ Hidden in the story were clues on how to get to the island. Together, Toby and N
 
 A map to the legendary island.
 
-# Introduction
+## Introduction
 
 According to the map they should be a few hundred meters away now.
 
@@ -55,7 +57,7 @@ They're in the water now but the waves keep them under.
 
 The blue skies, turned gray now fade into black as they are sink down into the depths of the ocean.
 
-# Opening Scene
+## Opening Scene
 
 On an eerie and desolate volcanic island, Toby and Nicole find
 themselves washed up on shore. They find a note placed between them
@@ -65,7 +67,8 @@ a sacrifice of some sort, Toby and Nicole look confused and that's when it hits 
 
 
 # How to play
-<a href="#play"></a>
+
+<a name="play"></a>
 
   Keyboard
 
@@ -97,6 +100,7 @@ a sacrifice of some sort, Toby and Nicole look confused and that's when it hits 
   
 # Contact
 
+<a name="Contact"></a>
 Jethro Moller
 MLLJET002@myuct.ac.za
 
